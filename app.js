@@ -55,8 +55,7 @@ function render() {
     tdPages.className = 'py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400';
     // Add text to td elements.
     tdTitle.textContent = myLibrary[i].title;
-    tdAuthor.textContent = myLibrary[i].author;
-    tdPages.textContent = myLibrary[i].pages;
+    tdAuthor.textContent = myLibrary[i].author;}
 
 
 }
