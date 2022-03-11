@@ -77,15 +77,21 @@ function render() {
   for (let i = 0; i < myLibrary.length; i++) {
     let tr = document.createElement('tr');
     // Change tr class for Tailwind CSS.
-    document.getElementById('tr').className = 'bg-white border-b dark:bg-gray-800 dark:border-gray-700';
+    
+    document.getElementById(tr).className = 'bg-white border-b dark:bg-gray-800 dark:border-gray-700';
     // Create td elements for each book.
     let tdTitle = document.createElement('td');
     tdTitle.id = 'book-title';
     document.getElementById('book-title').className = 'py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white';
+    //Display book title.
+    tdTitle.textContent = myLibrary[i].title;
     let tdAuthor = document.createElement('td');
     tdAuthor.id = 'author-pages';
+    //Display book author and pages.
+    tdAuthor.textContent = myLibrary[i].author
     let tdPages = document.createElement('td');
     tdPages.id = 'author-pages';
+    tdPages.textContent = myLibrary[i].pages;
     document.getElementById('author-pages').className = 'py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400';
     let tdRead = document.createElement('td');
     tdRead.id = 'book-read-unread';
@@ -96,6 +102,8 @@ function render() {
       let read = document.createElement('a');
       read.textContent = "read";
       read.className = "text-green-600 dark:text-green-500 hover:underline";
+      
+
       // Append the read element to the td element.
       tdRead.appendChild(read);
     } else {
@@ -124,3 +132,6 @@ function render() {
     // Append the tr element to the tbody element.
     tbody.appendChild(tr);
   }
+}
+
+
