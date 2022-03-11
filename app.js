@@ -28,8 +28,42 @@ document.getElementById('submit').addEventListener('click', function(e) {
   let pages = document.getElementById('page-number').value;
   let read = document.getElementById('read-unread').value;
   addBookToLibrary(title, author, pages, read);
+  // Clear the form.
+  document.getElementById('book-name').value = '';
+  document.getElementById('author').value = '';
+  document.getElementById('page-number').value = '';
+  document.getElementById('read-unread').value = '';
+  displayTotalBooks(myLibrary);
+
   
 });
+
+document.getElementById('delete-all').addEventListener('click', function(e) {
+  e.preventDefault();
+  myLibrary = [];
+  displayTotalBooks(myLibrary);
+  // render();
+});
+
+// Display total read books, total unread books, and total books.
+function displayTotalBooks(arr){
+  let totalBooks = arr.length;
+  let totalRead = 0;
+  let totalUnread = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i].read === "read") {
+      totalRead++;
+    } else {
+      totalUnread++;
+    }
+  }
+  document.getElementById('total-books').textContent = "TOTAL BOOKS: " + totalBooks;
+  document.getElementById('total-read').textContent = "TOTAL READ: " + totalRead;
+  document.getElementById('total-unread').textContent = "TOTAL UNREAD: " + totalUnread;
+}
+
+
+
   
   
 
