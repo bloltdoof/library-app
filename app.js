@@ -25,14 +25,23 @@ function submitBook() {
   let author = document.getElementById('author').value;
   let pages = document.getElementById('page-number').value;
   let read = document.getElementById('read-unread').value;
+
+
+  // if read is true, change the text to read.
+  if (read === 'true') {
+    read = 'read';
+  }
+  else {
+    read = 'unread';
+  }
+
+  // Add book to library.
   addBookToLibrary(title, author, pages, read);
 }
 
-// When button with id 'submit' is clicked, call submitBook function and prevent default action.
-document.getElementById('submit').addEventListener('click', function(e) {
-  submitBook();
-  e.preventDefault();
-});
+// When button with id 'submit' is clicked, call submitBook function to add book to library.
+document.getElementById('submit').addEventListener('click', submitBook);
+
 
 
 // Render the new book with a new row in the table.
