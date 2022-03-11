@@ -16,7 +16,7 @@ function book(title, author, pages, read) {
 function addBookToLibrary(title, author, pages, read) {
     let newBook = new book(title, author, pages, read);
     myLibrary.push(newBook);
-    render();
+    // render();
     }
 
 // When the user clicks submit button, get the values from the input fields and add the book to the library.
@@ -28,8 +28,11 @@ function submitBook() {
   addBookToLibrary(title, author, pages, read);
 }
 
-// When button with id 'submit' is clicked, call submitBook function.
-document.getElementById('submit').addEventListener('click', submitBook);
+// When button with id 'submit' is clicked, call submitBook function and prevent default action.
+document.getElementById('submit').addEventListener('click', function(e) {
+  submitBook();
+  e.preventDefault();
+});
 
 
 // Render the new book with a new row in the table.
