@@ -19,28 +19,19 @@ function addBookToLibrary(title, author, pages, read) {
     // render();
     }
 
-// When the user clicks submit button, get the values from the input fields and add the book to the library.
-function submitBook() {
+
+// When the user clicks submit, add the book to the library.
+document.getElementById('submit').addEventListener('click', function(e) {
+  e.preventDefault();
   let title = document.getElementById('book-name').value;
   let author = document.getElementById('author').value;
   let pages = document.getElementById('page-number').value;
   let read = document.getElementById('read-unread').value;
-
-
-  // if read is true, change the text to read.
-  if (read === 'true') {
-    read = 'read';
-  }
-  else {
-    read = 'unread';
-  }
-
-  // Add book to library.
   addBookToLibrary(title, author, pages, read);
-}
-
-// When button with id 'submit' is clicked, call submitBook function to add book to library.
-document.getElementById('submit').addEventListener('click', submitBook);
+  
+});
+  
+  
 
 
 
