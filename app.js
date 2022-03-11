@@ -72,11 +72,18 @@ function deleteBook(arr, i){
   displayTotalBooks(arr);
 }
 
+let colour = {
+  read: 'green',
+  unread: 'red'
+}
+
 function render(arr) {
   let tbody = document.getElementById('tbody');
   tbody.innerHTML = '';
   for (let i = 0; i < arr.length; i++) {
     let book = arr[i];
+    let bookStat = book.read;
+    let greenorred = colour[bookStat];
     let tr = document.createElement('tr');
     tr.id = 'product';
     // Change tr class name.
@@ -85,25 +92,12 @@ function render(arr) {
       <td class="py-4 px-6 text-sm font-medium text-gray-900 whitespace-nowrap dark:text-white"> ${book.title} </td>
       <td class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400"> ${book.author} </td>
       <td class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400"> ${book.pages} </td>
-      <!--- add script to change colour of the read status. --->
-      <script>
-        if (${book.read} === "read") {
-          document.getElementById('book-r-unr').classList.add('py-4 px-6 text-sm font-medium whitespace-nowrap text-green-600 dark:text-green-500');
-        } else {)
-          document.getElementById('book-r-unr').classList.add('py-4 px-6 text-sm font-medium whitespace-nowrap text-red-600 dark:text-red-500');
-        }
-      </script>
-      <td id="book-r-unr"> ${book.read} </td>
+      <td class="py-4 px-6 text-sm font-medium whitespace-nowrap">
+        <a href="#" class="text-${greenorred}-600 dark:text-${greenorred}-500 hover:underline">${book.read}</a>
+      </td>
       <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
         <a href="#" id="delete-the-book" onclick="deleteBook(myLibrary,${i})" class="text-red-600 dark:text-red-500 hover:underline">delete</a>
-        
-        
       </td>
-    
-      
-
-      
-
     `;
     tbody.appendChild(tr);
   }
