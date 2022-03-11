@@ -26,13 +26,19 @@ document.getElementById('submit').addEventListener('click', function(e) {
   let title = document.getElementById('book-name').value;
   let author = document.getElementById('author').value;
   let pages = document.getElementById('page-number').value;
-  let read = document.getElementById('read-unread').value;
+  let read = document.getElementById('read-unread').checked;
+  // if checkbox is checked, set read to "read".
+  if (read === true) {
+    read = "read";
+  } else {
+    read = "unread";
+  }
   addBookToLibrary(title, author, pages, read);
   // Clear the form.
   document.getElementById('book-name').value = '';
   document.getElementById('author').value = '';
   document.getElementById('page-number').value = '';
-  document.getElementById('read-unread').value = '';
+  document.getElementById('read-unread').checked = false;
   displayTotalBooks(myLibrary);
 
   
