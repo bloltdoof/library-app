@@ -77,6 +77,18 @@ let colour = {
   unread: 'red'
 }
 
+// Change status of book.
+function changeStatus(arr, i) {
+  if (arr[i].read === "read") {
+    arr[i].read = "unread";
+  } else {
+    arr[i].read = "read";
+  }
+  render(arr);
+  displayTotalBooks(arr);
+}
+
+
 function render(arr) {
   let tbody = document.getElementById('tbody');
   tbody.innerHTML = '';
@@ -93,7 +105,7 @@ function render(arr) {
       <td class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400"> ${book.author} </td>
       <td class="py-4 px-6 text-sm text-gray-500 whitespace-nowrap dark:text-gray-400"> ${book.pages} </td>
       <td class="py-4 px-6 text-sm font-medium whitespace-nowrap">
-        <a href="#" class="text-${greenorred}-600 dark:text-${greenorred}-500 hover:underline">${book.read}</a>
+        <a href="#" onclick="changeStatus(myLibrary,${i})" class="text-${greenorred}-600 dark:text-${greenorred}-500 hover:underline">${book.read}</a>
       </td>
       <td class="py-4 px-6 text-sm font-medium text-right whitespace-nowrap">
         <a href="#" id="delete-the-book" onclick="deleteBook(myLibrary,${i})" class="text-red-600 dark:text-red-500 hover:underline">delete</a>
