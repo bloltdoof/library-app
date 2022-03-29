@@ -2,7 +2,9 @@
   A small Library app, created with **HTML**, **CSS** and **JavaScript**.
   
 
-  🔗 **Live preview** of the project is [here](https://bloltdoof.github.io/library-app/).
+  🔗 **Live preview** of the project is [here](https://safakeroglu.github.io/library-app/).
+  ![image](https://user-images.githubusercontent.com/62554751/160678041-9c0114a6-a80c-47b5-94d6-efa8bdc437aa.png)
+
 
 ### Overview
 #### **Features:**
